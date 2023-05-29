@@ -7,14 +7,16 @@ import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
+import { RedirectEffects } from './shared/redirect/store/redirect.effects';
+import { routes } from './app-routing';
 import * as fromRoot from './store/root.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
-    provideEffects(),
+    provideEffects(RedirectEffects),
     provideHttpClient(),
-    provideRouter([]),
+    provideRouter(routes),
     provideRouterStore(),
     provideStore(fromRoot.reducers),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
