@@ -41,6 +41,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["leaflet"],
             "outputPath": "dist/ip-address-tracker",
             "index": "src/index.html",
             "main": "src/main.ts",

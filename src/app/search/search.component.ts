@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
+  imports: [CommonModule, MatButtonModule, MatFormFieldModule, MatInputModule],
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule],
+  styleUrls: ['./search.component.css'],
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
 })
-export class SearchComponent {
-
-}
+export class SearchComponent {}

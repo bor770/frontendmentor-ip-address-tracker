@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
+  imports: [CommonModule],
   selector: 'app-overlay',
   standalone: true,
-  imports: [CommonModule],
+  styleUrls: ['./overlay.component.css'],
   templateUrl: './overlay.component.html',
-  styleUrls: ['./overlay.component.css']
 })
 export class OverlayComponent {
-
+  data = []
 }

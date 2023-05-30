@@ -1,1 +1,6 @@
-<p>map works!</p>
+<div
+  style="height: 300px"
+  leaflet
+  [leafletLayers]="[marker([lat, lng], icon)]"
+  [leafletOptions]="{ center: latLng(lat, lng), layers: layers, zoom: 5 }"
+></div>

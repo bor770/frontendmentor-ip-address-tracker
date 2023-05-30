@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+
+import { MapComponent } from './map/map.component';
+import { OverlayComponent } from './overlay/overlay.component';
+import { SearchComponent } from './search/search.component';
 
 @Component({
+  imports: [CommonModule, MapComponent, OverlayComponent, SearchComponent],
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'ip-address-tracker';
