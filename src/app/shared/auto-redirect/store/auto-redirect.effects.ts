@@ -1,25 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
-import { ROUTER_NAVIGATED, getRouterSelectors } from '@ngrx/router-store';
-import { Store } from '@ngrx/store';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { routerNavigatedAction } from '@ngrx/router-store';
 import { catchError, filter, of, switchMap, tap } from 'rxjs';
 
 import { Ip } from '../../ip/ip.model';
 
 @Injectable()
-export class RedirectEffects {
+export class AutoRedirectEffects {
   ipifyUrl = `api.ipify.org/?format=json`;
 
-  redirect = createEffect(
+  autoRedirect = createEffect(
     () => {
       return this.actions$.pipe(
-        ofType(ROUTER_NAVIGATED),
-        concatLatestFrom(() =>
-          this.store.select(getRouterSelectors().selectRouteParam(`ip`))
+        ofType(routerNavigatedAction),
+        filter(
+          (navigatedAction) =>
+            !navigatedAction.payload.routerState.root.firstChild
         ),
-        filter(([, ip]) => !ip),
         switchMap(() =>
           this.http.get<Ip>(`https://${this.ipifyUrl}`).pipe(
             tap((ipifyResponse) => {
@@ -36,7 +35,6 @@ export class RedirectEffects {
   constructor(
     private actions$: Actions,
     private http: HttpClient,
-    private router: Router,
-    private store: Store
+    private router: Router
   ) {}
 }

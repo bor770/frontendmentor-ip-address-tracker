@@ -7,14 +7,14 @@ import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
-import { RedirectEffects } from './shared/redirect/store/redirect.effects';
+import { AutoRedirectEffects } from './shared/auto-redirect/store/auto-redirect.effects';
 import { routes } from './app-routing';
 import * as fromRoot from './store/root.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
-    provideEffects(RedirectEffects),
+    provideEffects(AutoRedirectEffects),
     provideHttpClient(),
     provideRouter(routes),
     provideRouterStore(),
