@@ -1,4 +1,8 @@
+:host {
+  height: 100%;
+}
+
 .map {
-  height: 33.125rem;
+  height: 100%;
   z-index: 0;
 }

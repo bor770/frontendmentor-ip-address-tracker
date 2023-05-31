@@ -1,6 +1,8 @@
 :host {
   background-image: url(../../assets/images/pattern-bg-mobile.png);
+  background-size: cover;
   display: block;
+  flex-shrink: 0;
   height: 18.75rem;
   padding-top: 1.7rem;
 }
@@ -23,4 +25,18 @@ h1 {
 
 .button {
   background-color: var(--color-very-dark-gray);
+}
+
+@media (min-width: 90rem) {
+  :host {
+    background-image: url(../../assets/images/pattern-bg-desktop.png);
+    height: 17.5rem;
+    padding-top: 1.9rem;
+  }
+
+  h1 {
+    font-size: 1.95rem;
+    letter-spacing: 0.1px;
+    margin-bottom: 1.7rem;
+  }
 }
