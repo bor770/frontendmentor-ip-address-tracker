@@ -9,7 +9,7 @@ import { Ip } from '../../ip/ip.model';
 
 @Injectable()
 export class AutoRedirectEffects {
-  ipifyUrl = `api.ipify.org/?format=json`;
+  ipifyUrl = `api.ipify.org?format=json`;
 
   autoRedirect = createEffect(
     () => {

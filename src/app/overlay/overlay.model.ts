@@ -1,1 +1,2 @@
-export type OverlayData = { content: string; title: string }[];
+export type OverlayItem = { content: string; title: string };
+export type OverlayData = OverlayItem[];

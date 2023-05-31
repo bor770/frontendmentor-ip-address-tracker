@@ -1,6 +1,10 @@
-<div
-  style="height: 300px"
-  leaflet
-  [leafletLayers]="[marker([lat, lng], icon)]"
-  [leafletOptions]="{ center: latLng(lat, lng), layers: layers, zoom: 5 }"
-></div>
+<ng-container
+  *ngIf="{ layers: layers$ | async, options: options$ | async } as observables"
+>
+  <div
+    style="height: 300px"
+    leaflet
+    [leafletLayers]="observables.layers"
+    [leafletOptions]="observables.options"
+  ></div>
+</ng-container>

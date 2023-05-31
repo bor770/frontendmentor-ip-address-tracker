@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import * as fromRoot from '../store/root.reducer';
 
 @Component({
   imports: [CommonModule],
@@ -9,5 +12,7 @@ import { Component } from '@angular/core';
   templateUrl: './overlay.component.html',
 })
 export class OverlayComponent {
-  data = []
+  data$ = this.store.select(fromRoot.selectOverlayData);
+
+  constructor(private store: Store) {}
 }
