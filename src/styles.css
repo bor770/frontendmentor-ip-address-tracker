@@ -17,5 +17,8 @@ html {
 }
 
 body {
+  align-items: center;
+  display: flex;
   font-family: "Rubik", Roboto, "Helvetica Neue", sans-serif;
+  text-align: center;
 }

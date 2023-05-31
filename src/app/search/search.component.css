@@ -1,0 +1,26 @@
+:host {
+  background-image: url(../../assets/images/pattern-bg-mobile.png);
+  display: block;
+  height: 18.75rem;
+  padding-top: 1.7rem;
+}
+
+h1 {
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.85rem;
+}
+
+.form-field {
+  font-size: 1.125rem;
+}
+
+.label,
+.input {
+  color: var(--color-very-dark-gray);
+}
+
+.button {
+  background-color: var(--color-very-dark-gray);
+}
