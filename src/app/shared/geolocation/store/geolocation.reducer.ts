@@ -24,7 +24,7 @@ const selectIsp = (state: State) => state.isp;
 const selectLat = (state: State) => state.location.lat;
 const selectLng = (state: State) => state.location.lng;
 const selectLocation = (state: State) =>
-  `${state.location.city}, ${state.location.region}\n${state.location.postalCode}`;
+  `${state.location.city}, ${state.location.region} ${state.location.postalCode}`;
 const selectTimezone = (state: State) => state.location.timezone;
 
 export const selectMapLayers = createSelector(

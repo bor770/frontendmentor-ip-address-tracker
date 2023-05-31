@@ -1,0 +1,35 @@
+:host {
+  align-self: center;
+  background-color: white;
+  border-radius: 15px;
+  height: 18.437rem;
+  position: absolute;
+  top: 10.5rem;
+  width: 87vw;
+}
+
+ul {
+  list-style-type: none;
+  padding-top: 1.65rem;
+}
+
+li {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  color: var(--color-dark-gray);
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.content {
+  color: var(--color-very-dark-gray);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+}

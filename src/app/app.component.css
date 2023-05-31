@@ -1,5 +1,11 @@
 :host {
   display: block;
   height: 51.875rem;
+  position: relative;
   width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
 }
