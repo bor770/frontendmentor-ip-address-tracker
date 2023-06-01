@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "frontendmentor-ip-address": {
+      "hosting": {
+        "ip-address-tracker": [
+          "frontendmentor-ip-address"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "frontendmentor-ip-address"
+  }
+}
