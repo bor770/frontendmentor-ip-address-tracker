@@ -13,6 +13,10 @@ const initialState: State = { isp: null, location: null };
 export const geolocationReducer = createReducer(
   initialState,
   on(
+    GeolocationActions.clear,
+    (state): State => ({ ...state, ...initialState })
+  ),
+  on(
     GeolocationActions.set,
     (state, { data }): State => ({ ...state, ...data })
   )
