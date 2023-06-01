@@ -5,12 +5,10 @@ import { GeolocationData } from '../geolocation.model';
 import { OverlayData } from '../../../overlay/overlay.model';
 import * as GeolocationActions from './geolocation.actions';
 import * as MapData from '../../../map/map.data';
-import { initial } from './initial-state';
 
 export type State = GeolocationData;
 
-// const initialState: State = { isp: null, location: null };
-const initialState = initial;
+const initialState: State = { isp: null, location: null };
 
 export const geolocationReducer = createReducer(
   initialState,
@@ -21,25 +19,25 @@ export const geolocationReducer = createReducer(
 );
 
 const selectIsp = (state: State) => state.isp;
-const selectLat = (state: State) => state.location.lat;
-const selectLng = (state: State) => state.location.lng;
+const selectLat = (state: State) => state.location?.lat;
+const selectLng = (state: State) => state.location?.lng;
 const selectLocation = (state: State) =>
-  `${state.location.city}, ${state.location.region} ${state.location.postalCode}`;
-const selectTimezone = (state: State) => state.location.timezone;
+  `${state.location?.city}, ${state.location?.region} ${state.location?.postalCode}`;
+const selectTimezone = (state: State) => state.location?.timezone;
 
 export const selectMapLayers = createSelector(
   selectLat,
   selectLng,
-  (lat: number, lng: number) => [marker([lat, lng], MapData.iconData)]
+  (lat: number, lng: number) =>
+    lat && lng ? [marker([lat, lng], MapData.iconData)] : null
 );
 export const selectMapOptions = createSelector(
   selectLat,
   selectLng,
-  (lat: number, lng: number) => ({
-    center: latLng(lat, lng),
-    layers: MapData.layers,
-    zoom: MapData.zoom,
-  })
+  (lat: number, lng: number) =>
+    lat && lng
+      ? { center: latLng(lat, lng), layers: MapData.layers, zoom: MapData.zoom }
+      : null
 );
 
 export const selectOverlayData = createSelector(

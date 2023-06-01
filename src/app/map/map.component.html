@@ -2,6 +2,7 @@
   *ngIf="{ layers: layers$ | async, options: options$ | async } as observables"
 >
   <div
+    *ngIf="observables.options"
     class="map"
     leaflet
     [leafletLayers]="observables.layers"

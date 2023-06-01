@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -27,10 +32,17 @@ export class SearchComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({ ip: new FormControl(null) });
+    this.form = new FormGroup({
+      ip: new FormControl(null, [
+        Validators.pattern(`^(?:[0-9]{1,3}.){3}[0-9]{1,3}$`),
+        Validators.required,
+      ]),
+    });
   }
 
   redirect() {
-    this.store.dispatch(SearchActions.redirect({ ip: this.form.value.ip }));
+    if (this.form.valid) {
+      this.store.dispatch(SearchActions.redirect({ ip: this.form.value.ip }));
+    }
   }
 }

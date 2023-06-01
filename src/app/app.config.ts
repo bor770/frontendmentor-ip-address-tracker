@@ -8,6 +8,7 @@ import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 import { AutoRedirectEffects } from './shared/auto-redirect/store/auto-redirect.effects';
+import { GeolocationEffects } from './shared/geolocation/store/geolocation.effects';
 import { routes } from './app-routing';
 import { SearchEffects } from './search/store/search.effects';
 import * as fromRoot from './store/root.reducer';
@@ -15,7 +16,7 @@ import * as fromRoot from './store/root.reducer';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
-    provideEffects(AutoRedirectEffects, SearchEffects),
+    provideEffects(AutoRedirectEffects, GeolocationEffects, SearchEffects),
     provideHttpClient(),
     provideRouter(routes),
     provideRouterStore(),
