@@ -12,13 +12,6 @@ export class GeolocationEffects {
   apiKey = `at_U5J6BHKhhtJQ1ogWjDb22sQs9cvnJ`;
   url = `geo.ipify.org/api/v2/country,city`;
 
-  clear = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(routerNavigatedAction),
-      map(() => GeolocationActions.clear())
-    );
-  });
-
   fetch = createEffect(() => {
     return this.actions$.pipe(
       ofType(routerNavigatedAction),

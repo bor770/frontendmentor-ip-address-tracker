@@ -1,3 +1,4 @@
+import { routerNavigatedAction } from '@ngrx/router-store';
 import { createReducer, createSelector, on } from '@ngrx/store';
 import { latLng, marker } from 'leaflet';
 
@@ -12,10 +13,7 @@ const initialState: State = { isp: null, location: null };
 
 export const geolocationReducer = createReducer(
   initialState,
-  on(
-    GeolocationActions.clear,
-    (state): State => ({ ...state, ...initialState })
-  ),
+  on(routerNavigatedAction, (state): State => ({ ...state, ...initialState })),
   on(
     GeolocationActions.set,
     (state, { data }): State => ({ ...state, ...data })
