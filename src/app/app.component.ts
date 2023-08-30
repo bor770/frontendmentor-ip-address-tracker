@@ -20,6 +20,7 @@ import { SearchComponent } from './search/search.component';
   styleUrls: [
     './styles/app.component.css',
     `./styles/mobile.app.component.css`,
+    `./styles/desktop.app.component.css`,
   ],
   templateUrl: './app.component.html',
 })

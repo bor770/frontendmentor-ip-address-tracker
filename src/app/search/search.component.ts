@@ -17,6 +17,7 @@ import { BaseComponent } from '../shared/base/base.component';
   styleUrls: [
     './styles/search.component.css',
     `./styles/mobile.search.component.css`,
+    `./styles/desktop.search.component.css`,
   ],
   templateUrl: './search.component.html',
 })
