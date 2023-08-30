@@ -1,0 +1,20 @@
+<div
+  *ngrxLet="{
+    layers: layers$,
+    options: options$,
+    width: width$
+  } as observables"
+  [ngClass]="observables.width"
+>
+  <img
+    alt="Background Pattern"
+    [src]="'../../assets/images/pattern-bg-' + observables.width + '.png'"
+  />
+  <div
+    *ngIf="observables.options"
+    class="map"
+    leaflet
+    [leafletLayers]="observables.layers"
+    [leafletOptions]="observables.options"
+  ></div>
+</div>
