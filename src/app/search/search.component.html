@@ -1,1 +1,10 @@
-<p>search works!</p>
+<div *ngrxLet="width$ as width" [ngClass]="width">
+  <form [formGroup]="form">
+    <input
+      formControlName="ip"
+      placeholder="Search for any IP address or domain"
+      type="text"
+    />
+    <img src="../../assets/images/arrow.svg" alt="Arrow" />
+  </form>
+</div>

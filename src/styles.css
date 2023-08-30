@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+:root {
+  --font-rubik: "Rubik", sans-serif;
+}
+
 body {
-  font-family: "Rubik", sans-serif;
+  color: #2c2c2c;
+  font-family: var(--font-rubik);
 }

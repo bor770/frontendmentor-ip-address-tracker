@@ -1,0 +1,21 @@
+form {
+  border-radius: 15px;
+  box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 3.62rem;
+  overflow: hidden;
+}
+
+input {
+  border: none;
+  font-family: inherit;
+  font-size: 1.12rem;
+  outline: none;
+  padding-left: 1.5rem;
+  width: 100%;
+}
+
+input::placeholder {
+  color: inherit;
+  opacity: 0.5;
+}

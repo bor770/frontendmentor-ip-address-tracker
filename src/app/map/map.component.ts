@@ -2,12 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LetDirective } from '@ngrx/component';
-import { Store } from '@ngrx/store';
 import { Marker } from 'leaflet';
 import { Observable } from 'rxjs';
 
+import { BaseComponent } from '../shared/base/base.component';
 import { MapOptions } from './map.model';
-import { Width } from '../shared/layout/layout.model';
 import * as fromRoot from '../store/root.reducer';
 
 @Component({
@@ -20,16 +19,14 @@ import * as fromRoot from '../store/root.reducer';
   ],
   templateUrl: './map.component.html',
 })
-export class MapComponent implements OnInit {
+export class MapComponent extends BaseComponent implements OnInit {
   layers$: Observable<Marker[]>;
   options$: Observable<MapOptions>;
-  width$: Observable<Width>;
-
-  constructor(private store: Store) {}
 
   ngOnInit(): void {
+    super.ngOnInit();
+
     this.layers$ = this.store.select(fromRoot.selectGeolocationMapLayers);
     this.options$ = this.store.select(fromRoot.selectGeolocationMapOptions);
-    this.width$ = this.store.select(fromRoot.selectLayoutWidth);
   }
 }
