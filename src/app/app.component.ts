@@ -1,13 +1,11 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
+  imports: [CommonModule],
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'ip-address-tracker';
-}
+export class AppComponent {}
