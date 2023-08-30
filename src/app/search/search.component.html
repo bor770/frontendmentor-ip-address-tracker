@@ -5,6 +5,12 @@
       placeholder="Search for any IP address or domain"
       type="text"
     />
-    <img src="../../assets/images/arrow.svg" alt="Arrow" />
+    <button
+      type="submit"
+      (mouseenter)="toggleButtonHoverStatus()"
+      (mouseleave)="toggleButtonHoverStatus()"
+    >
+      <img alt="Arrow" [src]="imgSrc" />
+    </button>
   </form>
 </div>

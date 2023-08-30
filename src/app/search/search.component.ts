@@ -23,6 +23,7 @@ import { BaseComponent } from '../shared/base/base.component';
 })
 export class SearchComponent extends BaseComponent implements OnInit {
   form: FormGroup;
+  private buttonHoverStatus = false;
 
   ngOnInit(): void {
     super.ngOnInit();
@@ -30,5 +31,15 @@ export class SearchComponent extends BaseComponent implements OnInit {
     this.form = new FormGroup({
       ip: new FormControl(null, Validators.required),
     });
+  }
+
+  get imgSrc() {
+    return `../../assets/images/arrow${
+      this.buttonHoverStatus ? '-hover' : ''
+    }.svg`;
+  }
+
+  toggleButtonHoverStatus() {
+    this.buttonHoverStatus = !this.buttonHoverStatus;
   }
 }

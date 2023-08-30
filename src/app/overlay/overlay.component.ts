@@ -14,6 +14,7 @@ import * as fromRoot from '../store/root.reducer';
   styleUrls: [
     './styles/overlay.component.css',
     `./styles/mobile.overlay.component.css`,
+    `./styles/desktop.overlay.component.css`,
   ],
   templateUrl: './overlay.component.html',
 })
