@@ -16,6 +16,7 @@ import * as fromRoot from '../store/root.reducer';
   styleUrls: [
     './styles/map.component.css',
     `./styles/mobile.map.component.css`,
+    `./styles/desktop.map.component.css`,
   ],
   templateUrl: './map.component.html',
 })
