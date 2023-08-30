@@ -1,5 +1,5 @@
 <div *ngrxLet="width$ as width" [ngClass]="width">
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <input
       formControlName="ip"
       placeholder="Search for any IP address or domain"

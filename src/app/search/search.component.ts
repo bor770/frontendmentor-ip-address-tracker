@@ -6,7 +6,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LetDirective } from '@ngrx/component';
+import { Store } from '@ngrx/store';
 
 import { BaseComponent } from '../shared/base/base.component';
 
@@ -25,6 +27,10 @@ export class SearchComponent extends BaseComponent implements OnInit {
   form: FormGroup;
   private buttonHoverStatus = false;
 
+  constructor(private router: Router, public store: Store) {
+    super(store);
+  }
+
   ngOnInit(): void {
     super.ngOnInit();
 
@@ -41,5 +47,9 @@ export class SearchComponent extends BaseComponent implements OnInit {
 
   toggleButtonHoverStatus() {
     this.buttonHoverStatus = !this.buttonHoverStatus;
+  }
+
+  onSubmit() {
+    this.router.navigate([this.form.value.ip]);
   }
 }
