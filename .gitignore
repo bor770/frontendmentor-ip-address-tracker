@@ -43,3 +43,8 @@ Thumbs.db
 
 ip-address-tracker-figma
 ip-address-tracker-master
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
