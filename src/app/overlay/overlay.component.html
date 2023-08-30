@@ -1,1 +1,11 @@
-<p>overlay works!</p>
+<div
+  *ngrxLet="{ data: data$, width: width$ } as observables"
+  [ngClass]="observables.width"
+>
+  <ul>
+    <li *ngFor="let item of observables.data">
+      <span class="key">{{ item.key }}</span>
+      <span class="value">{{ item.value }}</span>
+    </li>
+  </ul>
+</div>

@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 form {
   border-radius: 15px;
   box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.1);

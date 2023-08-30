@@ -1,0 +1,25 @@
+:host {
+  background-color: #fff;
+  border-radius: 15px;
+  display: block;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+}
+
+.key {
+  font-weight: 700;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.value {
+  font-weight: 500;
+}

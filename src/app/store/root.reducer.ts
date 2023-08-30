@@ -1,4 +1,8 @@
-import { routerReducer, RouterReducerState } from '@ngrx/router-store';
+import {
+  getRouterSelectors,
+  routerReducer,
+  RouterReducerState,
+} from '@ngrx/router-store';
 import {
   ActionReducerMap,
   createFeatureSelector,
@@ -7,6 +11,7 @@ import {
 
 import * as fromGeolocation from '../shared/geolocation/store/geolocation.reducer';
 import * as fromLayout from '../shared/layout/store/layout.reducer';
+import { OverlayData } from '../overlay/overlay.model';
 
 interface State {
   geolocation: fromGeolocation.State;
@@ -32,9 +37,23 @@ export const selectGeolocationMapOptions = createSelector(
   fromGeolocation.selectMapOptions
 );
 
-const selectLayout = createFeatureSelector<fromLayout.State>(`layout`);
+const selectGeolocatOverlayData = createSelector(
+  selectGeolocationState,
+  fromGeolocation.selectOverlayData
+);
+
+export const selectGeolocationOverlayData = createSelector(
+  selectGeolocatOverlayData,
+  getRouterSelectors().selectRouteParam(`ip`),
+  (overlayData: OverlayData, ip: string): OverlayData => [
+    { key: `ip address`, value: ip },
+    ...overlayData,
+  ]
+);
+
+const selectLayoutState = createFeatureSelector<fromLayout.State>(`layout`);
 
 export const selectLayoutWidth = createSelector(
-  selectLayout,
+  selectLayoutState,
   fromLayout.getWidth
 );
