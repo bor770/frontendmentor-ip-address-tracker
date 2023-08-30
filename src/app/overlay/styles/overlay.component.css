@@ -9,7 +9,7 @@ ul {
   list-style-type: none;
 }
 
-li {
+.item {
   display: flex;
   flex-direction: column;
 }

@@ -1,0 +1,37 @@
+.desktop ul {
+  justify-content: space-between;
+  padding: 2.69rem 2rem;
+  text-align: left;
+}
+
+.desktop li {
+  display: flex;
+  width: 13.31rem;
+}
+
+.desktop li:not(:last-child)::after {
+  background-color: #000;
+  content: "";
+  display: block;
+  height: 100%;
+  margin-left: 1.6rem;
+  opacity: 0.15;
+  width: 1px;
+}
+
+.desktop .item {
+  gap: 13px;
+  margin-top: -0.38rem;
+  width: 100%;
+}
+
+.desktop .key {
+  font-size: 0.75rem;
+  letter-spacing: 1.75px;
+}
+
+.desktop .value {
+  font-size: 1.62rem;
+  line-height: 115.38%;
+  letter-spacing: -0.23px;
+}
