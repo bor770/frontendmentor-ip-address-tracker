@@ -1,0 +1,14 @@
+:host {
+  text-align: center;
+}
+
+.facade {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+h1 {
+  color: #fff;
+  font-weight: 500;
+}

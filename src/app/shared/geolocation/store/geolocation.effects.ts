@@ -6,6 +6,7 @@ import { catchError, filter, map, of, switchMap } from 'rxjs';
 
 import { GeolocationData } from '../geolocation.model';
 import * as GeolocationActions from './geolocation.actions';
+import { initial } from './initial-state';
 
 @Injectable()
 export class GeolocationEffects {
@@ -21,19 +22,20 @@ export class GeolocationEffects {
       filter(
         (routerNavigatedActionFirstChild) => !!routerNavigatedActionFirstChild
       ),
-      switchMap((routerNavigatedActionFirstChild) =>
-        this.http
-          .get<GeolocationData>(`https://${this.url}`, {
-            params: {
-              apiKey: this.apiKey,
-              ipAddress: routerNavigatedActionFirstChild.params.ip,
-            },
-          })
-          .pipe(
-            map((data) => GeolocationActions.set({ data })),
-            catchError(() => of())
-          )
-      )
+      // switchMap((routerNavigatedActionFirstChild) =>
+      //   this.http
+      //     .get<GeolocationData>(`https://${this.url}`, {
+      //       params: {
+      //         apiKey: this.apiKey,
+      //         ipAddress: routerNavigatedActionFirstChild.params.ip,
+      //       },
+      //     })
+      //     .pipe(
+      //       map((data) => GeolocationActions.set({ data })),
+      //       catchError(() => of())
+      //     )
+      // )
+      map(() => GeolocationActions.set({ data: initial }))
     );
   });
 

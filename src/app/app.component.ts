@@ -20,7 +20,10 @@ import * as fromRoot from './store/root.reducer';
   ],
   selector: 'app-root',
   standalone: true,
-  styleUrls: ['./app.component.css'],
+  styleUrls: [
+    './styles/app.component.css',
+    `./styles/mobile.app.component.css`,
+  ],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
